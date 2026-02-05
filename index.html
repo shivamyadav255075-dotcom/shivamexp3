@@ -3,50 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Arithmetic Operations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 6px;
+        }
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-<h2>Arithmetic Operations using Switch Case</h2>
+    <h2>Arithmetic Operations</h2>
 
-<script>
-    // Input numbers
-    let num1 = parseInt(prompt("Enter first number"));
-    let num2 = parseInt(prompt("Enter second number"));
+    <label>Number 1:</label><br>
+    <input type="number" id="num1"><br>
 
-    // Operator input
-    let operator = prompt("Enter operator (+, -, *, /)");
+    <label>Number 2:</label><br>
+    <input type="number" id="num2"><br><br>
 
-    let result;
+    <button onclick="add()">Add</button>
+    <button onclick="subtract()">Subtract</button>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
 
-    switch (operator) {
-        case "+":
-            result = num1 + num2;
-            document.write("Addition = " + result);
-            break;
+    <div id="result"></div>
 
-        case "-":
-            result = num1 - num2;
-            document.write("Subtraction = " + result);
-            break;
+    <script>
+        function getNumbers() {
+            const a = Number(document.getElementById("num1").value);
+            const b = Number(document.getElementById("num2").value);
+            return { a, b };
+        }
 
-        case "*":
-            result = num1 * num2;
-            document.write("Multiplication = " + result);
-            break;
+        function add() {
+            const { a, b } = getNumbers();
+            document.getElementById("result").innerText = "Result: " + (a + b);
+        }
 
-        case "/":
-            if (num2 != 0) {
-                result = num1 / num2;
-                document.write("Division = " + result);
+        function subtract() {
+            const { a, b } = getNumbers();
+            document.getElementById("result").innerText = "Result: " + (a - b);
+        }
+
+        function multiply() {
+            const { a, b } = getNumbers();
+            document.getElementById("result").innerText = "Result: " + (a * b);
+        }
+
+        function divide() {
+            const { a, b } = getNumbers();
+            if (b === 0) {
+                document.getElementById("result").innerText = "Error: Division by zero";
             } else {
-                document.write("Division by zero is not allowed");
+                document.getElementById("result").innerText = "Result: " + (a / b);
             }
-            break;
-
-        default:
-            document.write("Invalid Operator");
-    }
-</script>
+        }
+    </script>
 
 </body>
 </html>
