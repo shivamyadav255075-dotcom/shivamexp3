@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arithmetic Operations</title>
+</head>
+<body>
+
+<h2>Arithmetic Operations using Switch Case</h2>
+
+<script>
+    // Input numbers
+    let num1 = parseInt(prompt("Enter first number"));
+    let num2 = parseInt(prompt("Enter second number"));
+
+    // Operator input
+    let operator = prompt("Enter operator (+, -, *, /)");
+
+    let result;
+
+    switch (operator) {
+        case "+":
+            result = num1 + num2;
+            document.write("Addition = " + result);
+            break;
+
+        case "-":
+            result = num1 - num2;
+            document.write("Subtraction = " + result);
+            break;
+
+        case "*":
+            result = num1 * num2;
+            document.write("Multiplication = " + result);
+            break;
+
+        case "/":
+            if (num2 != 0) {
+                result = num1 / num2;
+                document.write("Division = " + result);
+            } else {
+                document.write("Division by zero is not allowed");
+            }
+            break;
+
+        default:
+            document.write("Invalid Operator");
+    }
+</script>
+
+</body>
+</html>
